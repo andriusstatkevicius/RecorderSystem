@@ -1,0 +1,10 @@
+﻿@page
+@model AdminModel
+@{
+    ViewData["Title"] = "Admin Page";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>You need to be logged in in order to use the admin functionality.</p>
+
+<a asp-page=".\Login" class="btn btn-primary">Login</a>
