@@ -8,6 +8,7 @@ builder.Services.AddRazorPages();
 builder.WebHost.UseUrls("http://localhost:9874");
 
 builder.Services.AddSingleton<ISessionContextProvider, SessionContextProvider>();
+builder.Services.AddIdentityCore<string>(options => { });
 
 var app = builder.Build();
 
