@@ -32,7 +32,7 @@ namespace RecorderSystem.Stores
 
         public static DbConnection GetOpenConnection()
         {
-            var connection = new SqlConnection("Data Source=DESKTOP-PUD7PO8\\SQLEXPRESS;" +
+            var connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;" +
                                                "database=RecorderSystem;" +
                                                "trusted_connection=yes;");
 
@@ -58,26 +58,24 @@ namespace RecorderSystem.Stores
                 "Select * From AdminUsers where Id = @id", new { id = userId });
         }
 
-        public Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
+        public async Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            using var connection = GetOpenConnection();
+
+            return await connection.QueryFirstOrDefaultAsync<User>(
+                "select * From AdminUsers where NormalizedUserName = @name",
+                new { name = normalizedUserName });
         }
 
-        public Task<string> GetNormalizedUserNameAsync(User user, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+        public Task<string> GetNormalizedUserNameAsync(User user, CancellationToken cancellationToken) => Task.FromResult(user.NormalizedUserName);
 
         public Task<string> GetUserIdAsync(User user, CancellationToken cancellationToken) => Task.FromResult(user.Id);
 
-        public Task<string> GetUserNameAsync(User user, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+        public Task<string> GetUserNameAsync(User user, CancellationToken cancellationToken) => Task.FromResult(user.UserName);
 
         public Task SetNormalizedUserNameAsync(User user, string normalizedName, CancellationToken cancellationToken)
         {
-            user.UserName = normalizedName;
+            user.NormalizedUserName = normalizedName;
             return Task.CompletedTask;
         }
 

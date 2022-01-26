@@ -6,13 +6,19 @@ using RecorderSystem.Stores;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizePage("/Admin");
+});
+
 //builder.WebHost.ConfigureKestrel(options => options.ListenLocalhost(1028));
 builder.WebHost.UseUrls("http://localhost:9874");
 
 builder.Services.AddSingleton<ISessionContextProvider, SessionContextProvider>();
 builder.Services.AddIdentityCore<User>(options => { });
 builder.Services.AddScoped<IUserStore<User>, UserStore>();
+builder.Services.AddAuthentication("cookies")
+    .AddCookie("cookies", options => options.LoginPath = "/Login");
 
 var app = builder.Build();
 
@@ -24,16 +30,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseAuthentication();
 app.UseHttpsRedirection();
 
 app.UseRouting();
+app.UseAuthorization();
 app.UseStaticFiles();
 
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
-
 
 app.UseAuthorization();
 

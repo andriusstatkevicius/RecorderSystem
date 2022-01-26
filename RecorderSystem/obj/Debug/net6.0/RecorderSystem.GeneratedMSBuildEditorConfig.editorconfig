@@ -8,41 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RecorderSystem
 build_property.RootNamespace = RecorderSystem
-build_property.ProjectDir = C:\Users\andrius.s\source\repos\RecorderSystem\RecorderSystem\
+build_property.ProjectDir = D:\Code\RecorderSystem\RecorderSystem\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\andrius.s\source\repos\RecorderSystem\RecorderSystem
+build_property.MSBuildProjectDirectory = D:\Code\RecorderSystem\RecorderSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/Admin.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/Error.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/Index.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/Login.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/_ViewImports.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code/RecorderSystem/RecorderSystem/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/_ViewStart.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andrius.s/source/repos/RecorderSystem/RecorderSystem/Pages/Shared/_Layout.cshtml]
+[D:/Code/RecorderSystem/RecorderSystem/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3bvtz1cm4x
