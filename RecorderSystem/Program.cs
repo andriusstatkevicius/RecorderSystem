@@ -1,4 +1,7 @@
+using RecorderSystem.Entities;
 using RecorderSystem.Services;
+using Microsoft.AspNetCore.Identity;
+using RecorderSystem.Stores;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +11,8 @@ builder.Services.AddRazorPages();
 builder.WebHost.UseUrls("http://localhost:9874");
 
 builder.Services.AddSingleton<ISessionContextProvider, SessionContextProvider>();
-builder.Services.AddIdentityCore<string>(options => { });
+builder.Services.AddIdentityCore<User>(options => { });
+builder.Services.AddScoped<IUserStore<User>, UserStore>();
 
 var app = builder.Build();
 

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace RecorderSystem.Stores
 {
-    public class IUserStore : IUserStore<User>
+    public class UserStore : IUserStore<User>, IUserPasswordStore<User>
     {
         public async Task<IdentityResult> CreateAsync(User user, CancellationToken cancellationToken)
         {
@@ -32,7 +32,7 @@ namespace RecorderSystem.Stores
 
         public static DbConnection GetOpenConnection()
         {
-            var connection = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;" +
+            var connection = new SqlConnection("Data Source=DESKTOP-PUD7PO8\\SQLEXPRESS;" +
                                                "database=RecorderSystem;" +
                                                "trusted_connection=yes;");
 
@@ -51,9 +51,11 @@ namespace RecorderSystem.Stores
             // TODO:
         }
 
-        public Task<User> FindByIdAsync(string userId, CancellationToken cancellationToken)
+        public async Task<User> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            using var connection = GetOpenConnection();
+            return await connection.QueryFirstOrDefaultAsync<User>(
+                "Select * From AdminUsers where Id = @id", new { id = userId });
         }
 
         public Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
@@ -85,9 +87,34 @@ namespace RecorderSystem.Stores
             return Task.CompletedTask;
         }
 
-        public Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
+        public async Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            using var connection = GetOpenConnection();
+            await connection.ExecuteAsync(
+                    "update AdminUsers " +
+                    "set [Id] = @id," +
+                    "[UserName] = @userName," +
+                    "[NormalizedUserName] = @normalizedUserName," +
+                    "[PasswordHash] = @passwordHash " +
+                    "where [Id] = @id",
+                    new
+                    {
+                        id = user.Id,
+                        userName = user.UserName,
+                        normalizedUserName = user.NormalizedUserName,
+                        passwordHash = user.PasswordHash
+                    });
+
+            return IdentityResult.Success;
         }
+
+        public Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)
+        {
+            user.PasswordHash = passwordHash;
+            return Task.CompletedTask;
+        }
+
+        public Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken) => Task.FromResult(user.PasswordHash);
+        public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken) => Task.FromResult(user.PasswordHash != null);
     }
 }
