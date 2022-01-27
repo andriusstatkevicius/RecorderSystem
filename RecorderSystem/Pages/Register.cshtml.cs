@@ -7,11 +7,11 @@ namespace RecorderSystem.Pages
 {
     public class RegisterModel : PageModel
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         [BindProperty]
-        public RegistrationDetails RegistrationDetails { get; set; }
-        public RegisterModel(UserManager<User> userManager)
+        public RegistrationInput RegistrationDetails { get; set; }
+        public RegisterModel(UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
         }
@@ -29,7 +29,7 @@ namespace RecorderSystem.Pages
 
             if (user is null)
             {
-                user = new User
+                user = new IdentityUser
                 {
                     Id = Guid.NewGuid().ToString(),
                     UserName = RegistrationDetails.UserName

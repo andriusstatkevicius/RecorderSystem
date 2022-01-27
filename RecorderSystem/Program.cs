@@ -1,6 +1,7 @@
-using RecorderSystem.Entities;
-using RecorderSystem.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using RecorderSystem.Entities;
 using RecorderSystem.Stores;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,14 +12,16 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizePage("/Admin");
 });
 
-//builder.WebHost.ConfigureKestrel(options => options.ListenLocalhost(1028));
-builder.WebHost.UseUrls("http://localhost:9874");
+var connectionString = // TODO: take from the environment variables
+builder.Services.AddDbContext<IdentityDbContext>(opt => opt.UseSqlServer(connectionString));
 
-builder.Services.AddSingleton<ISessionContextProvider, SessionContextProvider>();
-builder.Services.AddIdentityCore<User>(options => { });
-builder.Services.AddScoped<IUserStore<User>, UserStore>();
+builder.Services.AddIdentityCore<IdentityUser>(options => { });
+builder.Services.AddScoped<IUserStore<IdentityUser>, UserOnlyStore<IdentityUser, IdentityDbContext>>();
 builder.Services.AddAuthentication("cookies")
     .AddCookie("cookies", options => options.LoginPath = "/Login");
+
+// Allows to modify the mark up on the Razor Pages and reload on the browser to the changes instantly
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 

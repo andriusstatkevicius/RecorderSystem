@@ -6,14 +6,14 @@
 
 <form method="post">
     <div class="form-group">
-        <label for="email address">Email address</label>
+        <label asp-for="LoginDetails.UserName"></label>
         <div class="input-group">
-            <input type="text" name="Email Address" class="form-control" />
+            <input asp-for="LoginDetails.UserName" class="form-control" />
         </div>
 
-        <label for="Password">Password</label>
+        <label asp-for="LoginDetails.Password"></label>
         <div class="input-group">
-            <input type="text" name="Password" class="form-control" />
+            <input asp-for="LoginDetails.Password" class="form-control" />
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
