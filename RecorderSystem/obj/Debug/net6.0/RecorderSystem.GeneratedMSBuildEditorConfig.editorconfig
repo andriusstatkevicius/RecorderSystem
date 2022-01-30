@@ -15,8 +15,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\Code\RecorderSystem\RecorderSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Code/RecorderSystem/RecorderSystem/Pages/Admin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4uY3NodG1s
+[D:/Code/RecorderSystem/RecorderSystem/Pages/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code/RecorderSystem/RecorderSystem/Pages/AdminPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Code/RecorderSystem/RecorderSystem/Pages/Error.cshtml]
@@ -33,6 +37,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Code/RecorderSystem/RecorderSystem/Pages/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code/RecorderSystem/RecorderSystem/Pages/RegistrationPages/ConsultantRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cmF0aW9uUGFnZXNcQ29uc3VsdGFudFJlZ2lzdHJhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code/RecorderSystem/RecorderSystem/Pages/RegistrationPages/StudentRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cmF0aW9uUGFnZXNcU3R1ZGVudFJlZ2lzdHJhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Code/RecorderSystem/RecorderSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]

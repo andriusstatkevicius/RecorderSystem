@@ -2,7 +2,7 @@
 
 namespace RecorderSystem.Entities
 {
-    public class RegistrationInput
+    public class EmployeeRegistrationInput
     {
         [Required]
         [Display(Name = "User Name")]
@@ -13,5 +13,7 @@ namespace RecorderSystem.Entities
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
+        [Display(Name = "User Type")]
+        public UserType UserType { get; set; }
     }
 }

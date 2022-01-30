@@ -1,27 +1,33 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RecorderSystem.Entities;
-using RecorderSystem.Stores;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages(options =>
 {
-    options.Conventions.AuthorizePage("/Admin");
+    options.Conventions.AuthorizePage("/AdminPanel");
 });
 
-var connectionString = // TODO: take from the environment variables
-builder.Services.AddDbContext<IdentityDbContext>(opt => opt.UseSqlServer(connectionString));
+var connectionString = Environment.GetEnvironmentVariable("RecorderSystemIdentityContext");
+var migrationAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
+builder.Services.AddDbContext<IdentityDbContext>(opt => opt.UseSqlServer(connectionString,
+    sql => sql.MigrationsAssembly(migrationAssembly)));
 
-builder.Services.AddIdentityCore<IdentityUser>(options => { });
-builder.Services.AddScoped<IUserStore<IdentityUser>, UserOnlyStore<IdentityUser, IdentityDbContext>>();
-builder.Services.AddAuthentication("cookies")
-    .AddCookie("cookies", options => options.LoginPath = "/Login");
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => { })
+    .AddEntityFrameworkStores<IdentityDbContext>();
+
+builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/Login");
 
 // Allows to modify the mark up on the Razor Pages and reload on the browser to the changes instantly
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdministratorRole",
+         policy => policy.RequireRole("Administrator"));
+});
 
 var app = builder.Build();
 
@@ -44,9 +50,5 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
-
-app.UseAuthorization();
-
 app.MapRazorPages();
-
 app.Run();

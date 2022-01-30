@@ -1,0 +1,64 @@
+﻿@page
+@model RecorderSystem.Pages.RegistrationPages.StudentRegistrationModel
+@{
+    ViewData["Title"] = "Student registration";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <form method="post" class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="RegistrationDetails.FirstName" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.FirstName" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.FirstName"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDetails.LastName" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.LastName" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.LastName"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDetails.EmailAddress" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.EmailAddress" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.EmailAddress"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDetails.MobilePhone" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.MobilePhone" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.MobilePhone"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDetails.BirthDate" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.BirthDate" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.BirthDate"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDetails.Address" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.Address" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.Address"></span>
+                </div>
+            </div>
+             <div class="form-group">
+                <label asp-for="RegistrationDetails.City" class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <input asp-for="RegistrationDetails.City" class="form-control" />
+                    <span class="text-danger" asp-validation-for="RegistrationDetails.City"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div asp-validation-summary="All"></div>
+        </form>
+    </div>
+</div>

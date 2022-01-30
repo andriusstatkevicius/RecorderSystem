@@ -1,44 +1,49 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RecorderSystem.Entities;
 
 namespace RecorderSystem.Pages
 {
+    [Authorize(Roles = "Administrator, Consultant")]
     public class RegisterModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IHtmlHelper _htmlHelper;
 
         [BindProperty]
-        public RegistrationInput RegistrationDetails { get; set; }
-        public RegisterModel(UserManager<IdentityUser> userManager)
+        public UserType UserType { get; set; }
+        public IEnumerable<SelectListItem> UserTypes { get; set; }
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public RegisterModel(IHtmlHelper htmlHelper, UserManager<IdentityUser> userManager)
         {
+            _htmlHelper = htmlHelper;
             _userManager = userManager;
         }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            if (await _userManager.IsInRoleAsync(user, "administrator"))
+                UserTypes = _htmlHelper.GetEnumSelectList<UserType>();
+            else // Not allowing for consultant to enter new users except students (only the admin can add new employees)
+                UserTypes = _htmlHelper.GetEnumSelectList<UserType>()
+                    .Where(x => !x.Text.Equals(nameof(UserType.Consultant))
+                                && !x.Text.Equals(nameof(UserType.Teacher))
+                                && !x.Text.Equals(nameof(UserType.Instructor)));
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
                 return Page();
 
-            var user = await _userManager.FindByNameAsync(RegistrationDetails.UserName);
-
-            if (user is null)
-            {
-                user = new IdentityUser
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    UserName = RegistrationDetails.UserName
-                };
-
-                var result = await _userManager.CreateAsync(user, RegistrationDetails.Password);
-                if (result.Succeeded)
-                    return RedirectToPage("./Success");
-            }
+            if (UserType == UserType.Student)
+                return RedirectToPage("./RegistrationPages/StudentRegistration");
+            else if (UserType == UserType.Consultant)
+                return RedirectToPage("./RegistrationPages/ConsultantRegistration");
 
             return Page();
         }

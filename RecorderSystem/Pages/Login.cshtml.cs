@@ -10,10 +10,14 @@ namespace RecorderSystem.Pages
     public class LoginModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IUserClaimsPrincipalFactory<IdentityUser> _claimsPrincipalFactory;
+
         [BindProperty] public LoginInput LoginDetails { get; set; }
-        public LoginModel(UserManager<IdentityUser> userManager)
+        public LoginModel(UserManager<IdentityUser> userManager,
+            IUserClaimsPrincipalFactory<IdentityUser> claimsPrincipalFactory)
         {
             _userManager = userManager;
+            _claimsPrincipalFactory = claimsPrincipalFactory;
         }
         public void OnGet()
         {
@@ -26,12 +30,10 @@ namespace RecorderSystem.Pages
                 var user = await _userManager.FindByNameAsync(LoginDetails.UserName);
                 if(!(user is null) && await _userManager.CheckPasswordAsync(user, LoginDetails.Password))
                 {
-                    var identity = new ClaimsIdentity("cookies");
-                    identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
-                    identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
-
-                    await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(identity));
-                    return RedirectToPage("./Index");
+                    // The default implementtion of the claims principal factory is hard coded to use Identity.Application as the cookie scheme
+                    var principal = await _claimsPrincipalFactory.CreateAsync(user);
+                    await HttpContext.SignInAsync("Identity.Application", principal);
+                    return RedirectToPage("./About");
                 }
 
                 ModelState.AddModelError("", "Invalid UserName or Password");

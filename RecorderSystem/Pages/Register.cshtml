@@ -1,32 +1,20 @@
 ﻿@page
 @model RecorderSystem.Pages.RegisterModel
 @{
-    ViewData["Title"] = "Register Admin";
+    ViewData["Title"] = "New user";
 }
+
+<h1>@ViewData["Title"]</h1>
 
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-        <h1 class="text-center">Consultant Registration</h1>
         <form method="post" class="form-horizontal">
             <div class="form-group">
-                <label asp-for="RegistrationDetails.UserName" class="col-sm-2"></label>
+                <label asp-for="UserType">Please select user Type</label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.UserName" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.UserName"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegistrationDetails.Password" class="col-sm-2"></label>
-                <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.Password" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.Password"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegistrationDetails.ConfirmPassword" class="col-sm-2"></label>
-                <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.ConfirmPassword" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.Password"></span>
+                    <select class="form-select" asp-for="UserType"
+                            asp-items="Model.UserTypes"></select>
+                    <span class="text-danger" asp-validation-for="UserType"></span>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
