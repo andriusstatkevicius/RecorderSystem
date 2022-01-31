@@ -24,4 +24,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RecordSystemData\RecordSystemData.csproj" />
+  </ItemGroup>
+
 </Project>

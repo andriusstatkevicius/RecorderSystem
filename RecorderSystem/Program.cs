@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RecordSystemData;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,13 +12,16 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizePage("/AdminPanel");
 });
 
-var connectionString = Environment.GetEnvironmentVariable("RecorderSystemIdentityContext");
+var identityContextConnectionString = Environment.GetEnvironmentVariable("RecorderSystemIdentityContext");
 var migrationAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
-builder.Services.AddDbContext<IdentityDbContext>(opt => opt.UseSqlServer(connectionString,
+builder.Services.AddDbContext<IdentityDbContext>(opt => opt.UseSqlServer(identityContextConnectionString,
     sql => sql.MigrationsAssembly(migrationAssembly)));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => { })
     .AddEntityFrameworkStores<IdentityDbContext>();
+
+var recordSystemAppContext = Environment.GetEnvironmentVariable("RecordSystemAppContext");
+builder.Services.AddDbContext<RecordSystemAppContext>(option => option.UseSqlServer(recordSystemAppContext));
 
 builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/Login");
 
@@ -52,3 +56,4 @@ app.UseEndpoints(endpoints =>
 });
 app.MapRazorPages();
 app.Run();
+

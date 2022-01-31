@@ -1289,6 +1289,30 @@
             "rid": "win"
           }
         }
+      },
+      "RecordSystemData/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.1",
+          "RecordSystemLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecordSystemData.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecordSystemData.dll": {}
+        }
+      },
+      "RecordSystemLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RecordSystemLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecordSystemLibrary.dll": {}
+        }
       }
     }
   },
@@ -3501,6 +3525,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "RecordSystemData/1.0.0": {
+      "type": "project",
+      "path": "../RecordSystemData/RecordSystemData.csproj",
+      "msbuildProject": "../RecordSystemData/RecordSystemData.csproj"
+    },
+    "RecordSystemLibrary/1.0.0": {
+      "type": "project",
+      "path": "../RecordSystemLibrary/RecordSystemLibrary.csproj",
+      "msbuildProject": "../RecordSystemLibrary/RecordSystemLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3513,6 +3547,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.1",
       "Microsoft.Extensions.Identity.Core >= 6.0.1",
       "Microsoft.Extensions.Identity.Stores >= 6.0.1",
+      "RecordSystemData >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -3552,7 +3587,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Code\\RecorderSystem\\RecordSystemData\\RecordSystemData.csproj": {
+              "projectPath": "D:\\Code\\RecorderSystem\\RecordSystemData\\RecordSystemData.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
