@@ -37,8 +37,10 @@ namespace RecorderSystem.Pages.RegistrationPages
                 };
 
                 var result = await _userManager.CreateAsync(user, RegistrationDetails.Password);
+
+                // TODO: Check if it's possible to create role dynamically
                 var roleAssignResult = await _userManager.AddToRoleAsync(user, "Consultant");
-                if (result.Succeeded)
+                if (result.Succeeded && roleAssignResult.Succeeded)
                     return RedirectToPage("../Success");
             }
             else

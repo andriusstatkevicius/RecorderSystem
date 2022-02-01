@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RecorderSystem.Entities;
+using RecordSystemLibrary;
 
 namespace RecorderSystem.Pages.RegistrationPages
 {
@@ -9,7 +10,7 @@ namespace RecorderSystem.Pages.RegistrationPages
     public class StudentRegistrationModel : PageModel
     {
         [BindProperty]
-        public StudentRegistrationInput RegistrationDetails { get; set; }
+        public Student RegistrationDetails { get; set; }
         public StudentRegistrationModel()
         {
 

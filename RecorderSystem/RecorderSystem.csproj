@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RecordSystemData\RecordSystemData.csproj" />
+    <ProjectReference Include="..\RecordSystemLibrary\RecordSystemLibrary.csproj" />
   </ItemGroup>
 
 </Project>

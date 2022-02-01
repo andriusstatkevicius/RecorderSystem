@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RecorderSystem;
 using RecordSystemData;
 using System.Reflection;
 
@@ -12,16 +13,17 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizePage("/AdminPanel");
 });
 
-var identityContextConnectionString = Environment.GetEnvironmentVariable("RecorderSystemIdentityContext");
+// TODO: Check if names can be extracted from application.json
+var identityContextConnString = Environment.GetEnvironmentVariable("RecorderSystemIdentityContext");
 var migrationAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
-builder.Services.AddDbContext<IdentityDbContext>(opt => opt.UseSqlServer(identityContextConnectionString,
+builder.Services.AddDbContext<AccessDBContext>(opt => opt.UseSqlServer(identityContextConnString,
     sql => sql.MigrationsAssembly(migrationAssembly)));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => { })
-    .AddEntityFrameworkStores<IdentityDbContext>();
+    .AddEntityFrameworkStores<AccessDBContext>();
 
-var recordSystemAppContext = Environment.GetEnvironmentVariable("RecordSystemAppContext");
-builder.Services.AddDbContext<RecordSystemAppContext>(option => option.UseSqlServer(recordSystemAppContext));
+var appContextConnectionString = Environment.GetEnvironmentVariable("RecorderSystemAppContext");
+builder.Services.AddDbContext<RecordSystemAppContext>(option => option.UseSqlServer(appContextConnectionString));
 
 builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/Login");
 

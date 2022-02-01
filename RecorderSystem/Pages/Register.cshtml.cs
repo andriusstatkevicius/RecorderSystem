@@ -30,9 +30,9 @@ namespace RecorderSystem.Pages
                 UserTypes = _htmlHelper.GetEnumSelectList<UserType>();
             else // Not allowing for consultant to enter new users except students (only the admin can add new employees)
                 UserTypes = _htmlHelper.GetEnumSelectList<UserType>()
-                    .Where(x => !x.Text.Equals(nameof(UserType.Consultant))
-                                && !x.Text.Equals(nameof(UserType.Teacher))
-                                && !x.Text.Equals(nameof(UserType.Instructor)));
+                .Where(x => !x.Text.Equals(nameof(UserType.Consultant))
+                            && !x.Text.Equals(nameof(UserType.Teacher))
+                            && !x.Text.Equals(nameof(UserType.Instructor)));
         }
 
         public IActionResult OnPost()

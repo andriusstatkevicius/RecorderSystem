@@ -3548,6 +3548,7 @@
       "Microsoft.Extensions.Identity.Core >= 6.0.1",
       "Microsoft.Extensions.Identity.Stores >= 6.0.1",
       "RecordSystemData >= 1.0.0",
+      "RecordSystemLibrary >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -3590,6 +3591,9 @@
           "projectReferences": {
             "D:\\Code\\RecorderSystem\\RecordSystemData\\RecordSystemData.csproj": {
               "projectPath": "D:\\Code\\RecorderSystem\\RecordSystemData\\RecordSystemData.csproj"
+            },
+            "D:\\Code\\RecorderSystem\\RecordSystemLibrary\\RecordSystemLibrary.csproj": {
+              "projectPath": "D:\\Code\\RecorderSystem\\RecordSystemLibrary\\RecordSystemLibrary.csproj"
             }
           }
         }
