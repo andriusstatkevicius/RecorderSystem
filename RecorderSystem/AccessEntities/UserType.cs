@@ -1,4 +1,4 @@
-﻿namespace RecorderSystem.Entities
+﻿namespace RecorderSystem.AccessEntities
 {
     public enum UserType
     {

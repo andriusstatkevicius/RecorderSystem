@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using RecorderSystem.Entities;
+using RecorderSystem.AccessEntities;
 
 namespace RecorderSystem.Pages
 {
-    [Authorize(Roles = "Administrator, Consultant")]
+    [Authorize(Policy = "RequireRegistrationRole")]
     public class RegisterModel : PageModel
     {
         private readonly IHtmlHelper _htmlHelper;
@@ -30,9 +30,7 @@ namespace RecorderSystem.Pages
                 UserTypes = _htmlHelper.GetEnumSelectList<UserType>();
             else // Not allowing for consultant to enter new users except students (only the admin can add new employees)
                 UserTypes = _htmlHelper.GetEnumSelectList<UserType>()
-                .Where(x => !x.Text.Equals(nameof(UserType.Consultant))
-                            && !x.Text.Equals(nameof(UserType.Teacher))
-                            && !x.Text.Equals(nameof(UserType.Instructor)));
+                .Where(x => x.Text.Equals(nameof(UserType.Student)));
         }
 
         public IActionResult OnPost()
@@ -42,7 +40,7 @@ namespace RecorderSystem.Pages
 
             if (UserType == UserType.Student)
                 return RedirectToPage("./RegistrationPages/StudentRegistration");
-            else if (UserType == UserType.Consultant)
+            else
                 return RedirectToPage("./RegistrationPages/ConsultantRegistration");
 
             return Page();

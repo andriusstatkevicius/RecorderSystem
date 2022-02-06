@@ -2,8 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RecorderSystem.Entities;
-using System.Security.Claims;
+using RecorderSystem.AccessEntities;
 
 namespace RecorderSystem.Pages
 {

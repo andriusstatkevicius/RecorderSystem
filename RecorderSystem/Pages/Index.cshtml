@@ -4,9 +4,20 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome here again</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Find your registration</h1>
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" asp-for="SearchedId" class="form-control" />
+        </div>
+    </div>
+</form>
 
+@if (Model.Registration != null)
+{
+    <div>Id: @Model.Registration.Id</div>
+    <div>TakenAt: @Model.Registration.TakenAt</div>
+    <div>Category: @Model.Registration.DrivingCategory.CategoryName</div>
+    <div>Exam type: @Model.Registration.ExamType</div>
+}
 

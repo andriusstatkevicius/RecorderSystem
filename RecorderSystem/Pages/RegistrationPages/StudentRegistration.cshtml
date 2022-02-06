@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Globalization
 @model RecorderSystem.Pages.RegistrationPages.StudentRegistrationModel
 @{
     ViewData["Title"] = "Student registration";
@@ -9,52 +10,87 @@
     <div class="col-xs-8 col-xs-offset-2">
         <form method="post" class="form-horizontal">
             <div class="form-group">
-                <label asp-for="RegistrationDetails.FirstName" class="col-sm-2"></label>
+                <label asp-for="Student.FirstName" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.FirstName" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.FirstName"></span>
+                    <input asp-for="Student.FirstName" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Student.FirstName"></span>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="RegistrationDetails.LastName" class="col-sm-2"></label>
+                <label asp-for="Student.LastName" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.LastName" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.LastName"></span>
+                    <input asp-for="Student.LastName" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Student.LastName"></span>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="RegistrationDetails.EmailAddress" class="col-sm-2"></label>
+                <label asp-for="Student.EmailAddress" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.EmailAddress" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.EmailAddress"></span>
+                    <input asp-for="Student.EmailAddress" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Student.EmailAddress"></span>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="RegistrationDetails.MobilePhone" class="col-sm-2"></label>
+                <label asp-for="Student.MobilePhone" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.MobilePhone" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.MobilePhone"></span>
+                    <input asp-for="Student.MobilePhone" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Student.MobilePhone"></span>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="RegistrationDetails.BirthDate" class="col-sm-2"></label>
+                <label asp-for="Student.BirthDate" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.BirthDate" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.BirthDate"></span>
+                    <input asp-for="Date" type="date" class="form-control" value="1990-01-01" />
+                    <span class="text-danger" asp-validation-for="Student.BirthDate"></span>
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="RegistrationDetails.Address" class="col-sm-2"></label>
+                <label asp-for="Student.Address" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.Address" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.Address"></span>
+                    <input asp-for="Student.Address" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Student.Address"></span>
                 </div>
             </div>
-             <div class="form-group">
-                <label asp-for="RegistrationDetails.City" class="col-sm-2"></label>
+            <div class="form-group">
+                <label asp-for="Student.City" class="col-sm-2"></label>
                 <div class="col-sm-10">
-                    <input asp-for="RegistrationDetails.City" class="form-control" />
-                    <span class="text-danger" asp-validation-for="RegistrationDetails.City"></span>
+                    <select class="form-select" asp-for="CityId"
+                            asp-items="Model.CitiesSelection"></select>
+                    <span class="text-danger" asp-validation-for="Student.City"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Driving category</label>
+                <div class="col-sm-10">
+                    <select class="form-select" asp-for="DrivingCategoryId"
+                            asp-items="Model.DrivingCategoriesSelection"></select>
+                    <span class="text-danger" asp-validation-for="Student.DrivingCategories"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Driving exam</label>
+                <div class="col-sm-10">
+                    <input asp-for="IsDrivingExamSelected" type="checkbox" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrivingExamTime" class="col-sm-2">Choose time for driving exam</label>
+                <div class="col-sm-10">
+                    <input asp-for="DrivingExamTime" type="datetime-local" class="form-control" value="@Model.DrivingExamTime.ToString()" />
+                    <span class="text-danger" asp-validation-for="DrivingExamTime"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Theory exam</label>
+                <div class="col-sm-10">
+                    <input asp-for="IsTheoryExamSelected" type="checkbox" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TheoryExamTime" class="col-sm-2">Choose time for driving exam</label>
+                <div class="col-sm-10">
+                    <input asp-for="TheoryExamTime" type="datetime-local" class="form-control" value="@Model.TheoryExamTime.ToString()" />
+                    <span class="text-danger" asp-validation-for="TheoryExamTime"></span>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

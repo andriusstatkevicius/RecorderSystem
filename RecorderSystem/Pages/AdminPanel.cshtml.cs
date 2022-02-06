@@ -8,15 +8,13 @@ namespace RecorderSystem.Pages
     {
         private readonly ILogger<AdminModel> _logger;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AdminModel(ILogger<AdminModel> logger,
-            UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+            UserManager<IdentityUser> userManager
+            )
         {
             _logger = logger;
             _userManager = userManager;
-            _roleManager = roleManager;
         }
 
         public IActionResult OnGet()

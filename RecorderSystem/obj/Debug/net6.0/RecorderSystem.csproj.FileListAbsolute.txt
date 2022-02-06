@@ -88,8 +88,6 @@ D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.AspNetCore
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.CSharp.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Caching.Abstractions.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Caching.Memory.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Binder.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.CommandLine.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
@@ -99,7 +97,6 @@ D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Xml.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
@@ -123,10 +120,7 @@ D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.EventSource.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.TraceSource.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.ObjectPool.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.Primitives.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Extensions.WebEncoders.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.JSInterop.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\Microsoft.Net.Http.Headers.dll
@@ -228,7 +222,6 @@ D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Reflection.Ty
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Resources.Reader.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Resources.ResourceManager.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Resources.Writer.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Runtime.CompilerServices.Unsafe.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Runtime.CompilerServices.VisualC.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Runtime.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\refs\System.Runtime.Extensions.dll
@@ -369,9 +362,7 @@ D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\runtimes\win\lib\netcorea
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\RecordSystemData.dll
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\RecordSystemLibrary.dll
-D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\RecordSystemData.pdb
 D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\RecordSystemLibrary.pdb
 D:\Code\RecorderSystem\RecorderSystem\obj\Debug\net6.0\RecorderSystem.csproj.AssemblyReference.cache
 D:\Code\RecorderSystem\RecorderSystem\obj\Debug\net6.0\RecorderSystem.GeneratedMSBuildEditorConfig.editorconfig
@@ -392,3 +383,13 @@ D:\Code\RecorderSystem\RecorderSystem\obj\Debug\net6.0\RecorderSystem.dll
 D:\Code\RecorderSystem\RecorderSystem\obj\Debug\net6.0\ref\RecorderSystem.dll
 D:\Code\RecorderSystem\RecorderSystem\obj\Debug\net6.0\RecorderSystem.pdb
 D:\Code\RecorderSystem\RecorderSystem\obj\Debug\net6.0\RecorderSystem.genruntimeconfig.cache
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\MailKit.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\MimeKit.dll
+D:\Code\RecorderSystem\RecorderSystem\bin\Debug\net6.0\BouncyCastle.Crypto.dll
